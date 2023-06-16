@@ -1,0 +1,33 @@
+<div class="container_auth">
+  <h3 class="tui-text_h4">Вход в Мессенджер</h3>
+  <form
+    [formGroup]="testForm"
+    class="auth-form"
+  >
+    <tui-input class="input">
+      Логин или телефон
+      <input tuiTextfield />
+    </tui-input>
+    <tui-input class="input">
+      Пароль
+      <input tuiTextfield />
+    </tui-input>
+    <div class="save-data">
+      <tui-checkbox formControlName="testValue"></tui-checkbox>
+      <span class="tui-text_body-m-2">Сохранить вход</span>
+    </div>
+    <a
+      tuiButton
+      size="m"
+    >
+      Войти
+    </a>
+    <a
+      tuiButton
+      size="m"
+      class="auth-btn"
+    >
+      Зарегистрироваться
+    </a>
+  </form>
+</div>
