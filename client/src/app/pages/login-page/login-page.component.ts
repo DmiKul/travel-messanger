@@ -12,8 +12,10 @@ export class LoginPageComponent {
   testForm = new FormGroup({
     testValue: new FormControl('mail@mail.ru')
   });
-  
-  constructor(private router: Router, private loginService: LoginService) {}
+
+  constructor(private router: Router, private loginService: LoginService) {
+    this.loginService.setIsLoggedIn(false);
+  }
 
   register() {
     this.router.navigate(['/register']);
