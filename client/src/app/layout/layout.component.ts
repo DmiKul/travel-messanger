@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./layout.component.less']
 })
 export class LayoutComponent {
-  @Input() public isAuthorized!: boolean
+  @Input() public isLoggedIn!: boolean
 }

@@ -6,7 +6,7 @@ import { RegistrationPageComponent } from './pages/registration-page/registratio
 
 const routes: Routes = [
   { path: 'profile', component: UserPageComponent, title: 'Профиль' },
-  { path: 'login', component: LoginPageComponent, title: 'Авторизация' },
+  { path: 'login', component: LoginPageComponent, title: 'Вход' },
   {
     path: 'register',
     component: RegistrationPageComponent,

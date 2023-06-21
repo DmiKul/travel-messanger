@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/api/services/login.service';
 
 @Component({
   selector: 'app-login-page',
@@ -8,6 +10,18 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class LoginPageComponent {
   testForm = new FormGroup({
-    testValue: new FormControl('mail@mail.ru'),
+    testValue: new FormControl('mail@mail.ru')
   });
+  
+  constructor(private router: Router, private loginService: LoginService) {}
+
+  register() {
+    this.router.navigate(['/register']);
+  }
+
+  login() {
+    //проверка
+    this.router.navigate(['/profile']);
+    this.loginService.setIsLoggedIn(true);
+  }
 }
