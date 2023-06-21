@@ -1,6 +1,5 @@
 <tui-root>
-  <app-layout *ngIf="isAuthorized"; else #auth>
+  <app-layout [isAuthorized]="isAuthorized">
     <router-outlet></router-outlet>
   </app-layout>
-  <router-outlet #auth></router-outlet>
 </tui-root>

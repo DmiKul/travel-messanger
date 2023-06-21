@@ -13,13 +13,15 @@ import { UserPageModule } from './pages/user-page/user-page.module';
 import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthorizationPageModule } from './pages/authorization-page/authorization-page.module';
+import { LoginPageModule } from './pages/login-page/login-page.module';
+import { RegistrationPageModule } from './pages/registration-page/registration-page.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     UserPageModule,
-    AuthorizationPageModule,
+    LoginPageModule,
+    RegistrationPageModule,
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot({}, {}),

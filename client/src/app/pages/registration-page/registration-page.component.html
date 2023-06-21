@@ -1,0 +1,57 @@
+<div class="container container_register">
+  <h3 class="tui-text_h4 title">Регистрация</h3>
+  <form
+    [formGroup]="testForm"
+    class="register-form"
+  >
+    <tui-input class="input">
+      Имя
+      <input tuiTextfield />
+    </tui-input>
+    <tui-input class="input">
+      Фамилия
+      <input tuiTextfield />
+    </tui-input>
+    <h4 class="tui-text_body-l">Пол</h4>
+    <div class="gender">
+      <div class="gender_item">
+        <tui-radio
+          formControlName="testValue"
+          item="male"
+        ></tui-radio>
+        <span>Мужской</span>
+      </div>
+      <div class="gender_item">
+        <tui-radio
+          formControlName="testValue"
+          item="female"
+        ></tui-radio>
+        <span>Женский</span>
+      </div>
+    </div>
+    <tui-input class="input">
+      Номер телефона
+      <input tuiTextfield />
+    </tui-input>
+    <tui-input class="input">
+      Электронная почта
+      <input tuiTextfield />
+    </tui-input>
+    <div class="btns">
+      <a
+        tuiButton
+        size="m"
+        class="btn btn-done"
+      >
+        Готово
+      </a>
+      <a
+        tuiButton
+        size="m"
+        class="btn btn-back"
+      >
+        Назад
+      </a>
+    </div>
+  </form>
+</div>

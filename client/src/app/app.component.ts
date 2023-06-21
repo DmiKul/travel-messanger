@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'client';
-  isAuthorized: boolean = false
+  isAuthorized: boolean = true
 }
