@@ -3,6 +3,7 @@ import { IFriend } from '../../types/models/friendModel';
 import { IGroup } from '../../types/models/groupModel';
 import { IPost } from '@customTypes/models';
 import * as moment from 'moment';
+import { LoginService } from 'src/app/api/services/login.service';
 
 @Component({
   selector: 'app-user-page',
@@ -65,7 +66,9 @@ export class UserPageComponent {
       .locale('ru')
   });
 
-  constructor() {
+  constructor(private loginService: LoginService) {
+    loginService.setIsLoggedIn(true)
+
     this.firstImages = this.images.slice(0, 3);
 
     this.friendsCount = this.friends.length;
