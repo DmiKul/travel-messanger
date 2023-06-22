@@ -1,14 +1,21 @@
 <div class="container container_register">
   <h3 class="tui-text_h4 title">Регистрация</h3>
   <form
-    [formGroup]="testForm"
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
     class="register-form"
   >
-    <tui-input class="input">
+    <tui-input
+      class="input"
+      formControlName="firstName"
+    >
       Имя
       <input tuiTextfield />
     </tui-input>
-    <tui-input class="input">
+    <tui-input
+      class="input"
+      formControlName="lastName"
+    >
       Фамилия
       <input tuiTextfield />
     </tui-input>
@@ -16,43 +23,50 @@
     <div class="gender">
       <div class="gender_item">
         <tui-radio
-          formControlName="testValue"
+          formControlName="gender"
           item="male"
         ></tui-radio>
         <span>Мужской</span>
       </div>
       <div class="gender_item">
         <tui-radio
-          formControlName="testValue"
+          formControlName="gender"
           item="female"
         ></tui-radio>
         <span>Женский</span>
       </div>
     </div>
-    <tui-input class="input">
+    <tui-input
+      class="input"
+      formControlName="phoneNumber"
+    >
       Номер телефона
       <input tuiTextfield />
     </tui-input>
-    <tui-input class="input">
+    <tui-input
+      class="input"
+      formControlName="email"
+    >
       Электронная почта
       <input tuiTextfield />
     </tui-input>
     <div class="btns">
-      <a
+      <button
+        type="submit"
         tuiButton
         size="m"
         class="btn btn-done"
       >
         Готово
-      </a>
-      <a
+      </button>
+      <button
         (click)="backToLogin()"
         tuiButton
         size="m"
         class="btn btn-back"
       >
         Назад
-      </a>
+      </button>
     </div>
   </form>
 </div>
