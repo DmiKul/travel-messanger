@@ -9,10 +9,6 @@ import { LoginService } from 'src/app/api/services/login.service';
   styleUrls: ['./registration-page.component.less']
 })
 export class RegistrationPageComponent {
-  // testForm = new FormGroup({
-  //   testValue: new FormControl('mail@mail.ru'),
-  // });
-
   form = this.formBuilder.group({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
