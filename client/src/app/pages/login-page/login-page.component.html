@@ -14,25 +14,25 @@
       <input tuiTextfield />
     </tui-input>
     <div
-    *ngIf="isLoginInvalid"
-    class="invalid"
-  >
-    Введите Логин или телефон
-  </div>
+      *ngIf="isLoginEmpty"
+      class="invalid"
+    >
+      Введите Логин или телефон
+    </div>
     <tui-input
       class="input"
       formControlName="password"
       required="true"
     >
       Пароль
-      <input tuiTextfield />
+      <input tuiTextfield type="password"/>
     </tui-input>
     <div
-    *ngIf="isPasswordInvalid"
-    class="invalid"
-  >
-    Введите Пароль
-  </div>
+      *ngIf="isPasswordEmpty"
+      class="invalid"
+    >
+      Введите Пароль
+    </div>
     <div class="save-data">
       <tui-checkbox formControlName="saveData"></tui-checkbox>
       <span class="tui-text_body-m-2">Сохранить вход</span>

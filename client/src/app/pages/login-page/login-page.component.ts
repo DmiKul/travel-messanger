@@ -16,8 +16,8 @@ export class LoginPageComponent {
     saveData: new FormControl('')
   });
 
-  isLoginInvalid: boolean = false
-  isPasswordInvalid: boolean = false
+  isLoginEmpty: boolean = false
+  isPasswordEmpty: boolean = false
 
   constructor(
     private router: Router,
@@ -34,17 +34,18 @@ export class LoginPageComponent {
   onSubmit(): void {
     console.log(this.form.value);
 
-    this.isLoginInvalid = false
-    this.isPasswordInvalid = false
+    this.isLoginEmpty = false
+    this.isPasswordEmpty = false
 
-    if (this.form.controls.login.status == 'INVALID') {
-      this.isLoginInvalid = true
+    if (!this.form.value.login) {
+      this.isLoginEmpty = true
     }
-    if (this.form.controls.password.status == 'INVALID') {
-      this.isPasswordInvalid = true
+    if (!this.form.value.password) {
+      this.isPasswordEmpty = true
     }
 
     //проверка
+    
     // this.router.navigate(['/profile']);
     // this.loginService.setIsLoggedIn(true);
   }

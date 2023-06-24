@@ -15,7 +15,7 @@
       <input tuiTextfield />
     </tui-input>
     <div
-      *ngIf="isFirstNameInvalid"
+      *ngIf="isFirstNameEmpty"
       class="invalid"
     >
       Введите Имя
@@ -30,7 +30,7 @@
       <input tuiTextfield />
     </tui-input>
     <div
-      *ngIf="isLastNameInvalid"
+      *ngIf="isLastNameEmpty"
       class="invalid"
     >
       Введите Фамилию
@@ -57,7 +57,7 @@
       </div>
     </div>
     <div
-      *ngIf="isGenderInvalid"
+      *ngIf="isGenderEmpty"
       class="invalid"
     >
       Выберите Пол
@@ -72,7 +72,7 @@
       <input tuiTextfield />
     </tui-input>
     <div
-      *ngIf="isPhoneNumberInvalid"
+      *ngIf="isPhoneNumberEmpty"
       class="invalid"
     >
       Введите Номер телефона
@@ -87,10 +87,46 @@
       <input tuiTextfield />
     </tui-input>
     <div
-      *ngIf="isEmailInvalid"
+      *ngIf="isEmailEmpty"
       class="invalid"
     >
       Введите Электронную почту
+    </div>
+    <tui-input
+      class="input"
+      formControlName="password"
+      required="true"
+      #password
+    >
+      Придумайте пароль
+      <input
+        tuiTextfield
+        type="password"
+      />
+    </tui-input>
+    <div
+      *ngIf="isPasswordEmpty"
+      class="invalid"
+    >
+      Введите пароль
+    </div>
+    <tui-input
+      class="input"
+      formControlName="confirmPassword"
+      required="true"
+      #confirmPassword
+    >
+      Подтвердите пароль
+      <input
+        tuiTextfield
+        type="password"
+      />
+    </tui-input>
+    <div
+      *ngIf="isConfirmPasswordEmpty"
+      class="invalid"
+    >
+      Введите пароль снова
     </div>
     <div class="btns">
       <button

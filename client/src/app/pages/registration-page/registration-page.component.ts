@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { flatMap } from 'rxjs';
 import { LoginService } from 'src/app/api/services/login.service';
 @Component({
   selector: 'app-registration-page',
@@ -14,14 +15,19 @@ export class RegistrationPageComponent {
     lastName: new FormControl(''),
     phoneNumber: new FormControl(''),
     email: new FormControl(''),
-    gender: new FormControl('')
+    gender: new FormControl(''),
+    password: new FormControl(''),
+    confirmPassword: new FormControl('')
+
   });
 
-  isFirstNameInvalid: boolean = false
-  isLastNameInvalid: boolean = false
-  isGenderInvalid: boolean = false
-  isPhoneNumberInvalid: boolean = false
-  isEmailInvalid: boolean = false
+  isFirstNameEmpty: boolean = false
+  isLastNameEmpty: boolean = false
+  isGenderEmpty: boolean = false
+  isPhoneNumberEmpty: boolean = false
+  isEmailEmpty: boolean = false
+  isPasswordEmpty: boolean = false
+  isConfirmPasswordEmpty: boolean = false
 
 
   constructor(
@@ -39,26 +45,37 @@ export class RegistrationPageComponent {
   onSubmit(): void {
     console.log(this.form);
 
-    this.isFirstNameInvalid = false
-    this.isLastNameInvalid = false
-    this.isGenderInvalid = false
-    this.isPhoneNumberInvalid = false
-    this.isEmailInvalid = false
+    this.isFirstNameEmpty = false
+    this.isLastNameEmpty = false
+    this.isGenderEmpty = false
+    this.isPhoneNumberEmpty = false
+    this.isEmailEmpty = false
+    this.isPasswordEmpty = false
+    this.isConfirmPasswordEmpty = false
 
-    if (this.form.controls.firstName.status == 'INVALID') {
-      this.isFirstNameInvalid = true
+    this.form.value.password = 'password'
+    console.log(!this.form.value.password)
+
+    if (!this.form.value['firstName']) {
+      this.isFirstNameEmpty = true
     }
-    if (this.form.controls.lastName.status == 'INVALID') {
-      this.isLastNameInvalid = true
+    if (!this.form.value['lastName']) {
+      this.isLastNameEmpty = true
     }
-    if (this.form.controls.gender.status == 'INVALID') {
-      this.isGenderInvalid = true
+    if (!this.form.value['gender']) {
+      this.isGenderEmpty = true
     }
-    if (this.form.controls.phoneNumber.status == 'INVALID') {
-      this.isPhoneNumberInvalid = true
+    if (!this.form.value['phoneNumber']) {
+      this.isPhoneNumberEmpty = true
     }
-    if (this.form.controls.email.status == 'INVALID') {
-      this.isEmailInvalid = true
+    if (!this.form.value['email']) {
+      this.isEmailEmpty = true
+    }
+    if (!this.form.value['password']) {
+      this.isPasswordEmpty = true
+    }
+    if (!this.form.value['confirmPassword']) {
+      this.isConfirmPasswordEmpty = true
     }
   }
 }
