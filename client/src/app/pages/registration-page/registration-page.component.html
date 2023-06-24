@@ -9,24 +9,40 @@
       class="input"
       formControlName="firstName"
       required="true"
+      #firstName
     >
       Имя
       <input tuiTextfield />
     </tui-input>
+    <div
+      *ngIf="isFirstNameInvalid"
+      class="invalid"
+    >
+      Введите Имя
+    </div>
     <tui-input
       class="input"
       formControlName="lastName"
       required="true"
+      #lastName
     >
       Фамилия
       <input tuiTextfield />
     </tui-input>
+    <div
+      *ngIf="isLastNameInvalid"
+      class="invalid"
+    >
+      Введите Фамилию
+    </div>
     <h4 class="tui-text_body-l">Пол</h4>
     <div class="gender">
       <div class="gender_item">
         <tui-radio
           formControlName="gender"
           item="male"
+          #male
+          required="true"
         ></tui-radio>
         <span>Мужской</span>
       </div>
@@ -34,26 +50,48 @@
         <tui-radio
           formControlName="gender"
           item="female"
+          #female
+          required="true"
         ></tui-radio>
         <span>Женский</span>
       </div>
+    </div>
+    <div
+      *ngIf="isGenderInvalid"
+      class="invalid"
+    >
+      Выберите Пол
     </div>
     <tui-input
       class="input"
       formControlName="phoneNumber"
       required="true"
+      #phoneNumber
     >
       Номер телефона
       <input tuiTextfield />
     </tui-input>
+    <div
+      *ngIf="isPhoneNumberInvalid"
+      class="invalid"
+    >
+      Введите Номер телефона
+    </div>
     <tui-input
       class="input"
       formControlName="email"
       required="true"
+      #email
     >
       Электронная почта
       <input tuiTextfield />
     </tui-input>
+    <div
+      *ngIf="isEmailInvalid"
+      class="invalid"
+    >
+      Введите Электронную почту
+    </div>
     <div class="btns">
       <button
         type="submit"

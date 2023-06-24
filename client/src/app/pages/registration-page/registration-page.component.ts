@@ -17,6 +17,13 @@ export class RegistrationPageComponent {
     gender: new FormControl('')
   });
 
+  isFirstNameInvalid: boolean = false
+  isLastNameInvalid: boolean = false
+  isGenderInvalid: boolean = false
+  isPhoneNumberInvalid: boolean = false
+  isEmailInvalid: boolean = false
+
+
   constructor(
     private router: Router,
     private loginService: LoginService,
@@ -31,5 +38,27 @@ export class RegistrationPageComponent {
 
   onSubmit(): void {
     console.log(this.form);
+
+    this.isFirstNameInvalid = false
+    this.isLastNameInvalid = false
+    this.isGenderInvalid = false
+    this.isPhoneNumberInvalid = false
+    this.isEmailInvalid = false
+
+    if (this.form.controls.firstName.status == 'INVALID') {
+      this.isFirstNameInvalid = true
+    }
+    if (this.form.controls.lastName.status == 'INVALID') {
+      this.isLastNameInvalid = true
+    }
+    if (this.form.controls.gender.status == 'INVALID') {
+      this.isGenderInvalid = true
+    }
+    if (this.form.controls.phoneNumber.status == 'INVALID') {
+      this.isPhoneNumberInvalid = true
+    }
+    if (this.form.controls.email.status == 'INVALID') {
+      this.isEmailInvalid = true
+    }
   }
 }
