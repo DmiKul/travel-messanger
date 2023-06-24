@@ -16,6 +16,9 @@ export class LoginPageComponent {
     saveData: new FormControl('')
   });
 
+  isLoginInvalid: boolean = false
+  isPasswordInvalid: boolean = false
+
   constructor(
     private router: Router,
     private loginService: LoginService,
@@ -28,13 +31,21 @@ export class LoginPageComponent {
     this.router.navigate(['/register']);
   }
 
-  login() {
-    //проверка
-    this.router.navigate(['/profile']);
-    this.loginService.setIsLoggedIn(true);
-  }
-
   onSubmit(): void {
     console.log(this.form.value);
+
+    this.isLoginInvalid = false
+    this.isPasswordInvalid = false
+
+    if (this.form.controls.login.status == 'INVALID') {
+      this.isLoginInvalid = true
+    }
+    if (this.form.controls.password.status == 'INVALID') {
+      this.isPasswordInvalid = true
+    }
+
+    //проверка
+    // this.router.navigate(['/profile']);
+    // this.loginService.setIsLoggedIn(true);
   }
 }
