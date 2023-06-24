@@ -1,11 +1,13 @@
 <div class="container container_auth">
   <h3 class="tui-text_h4">Вход в Мессенджер</h3>
   <form
-    [formGroup]="testForm"
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
     class="auth-form"
   >
     <tui-input
       class="input"
+      formControlName="login"
       required="true"
     >
       Логин или телефон
@@ -13,29 +15,31 @@
     </tui-input>
     <tui-input
       class="input"
+      formControlName="password"
       required="true"
     >
       Пароль
       <input tuiTextfield />
     </tui-input>
     <div class="save-data">
-      <tui-checkbox formControlName="testValue"></tui-checkbox>
+      <tui-checkbox formControlName="saveData"></tui-checkbox>
       <span class="tui-text_body-m-2">Сохранить вход</span>
     </div>
-    <a
+    <button
       (click)="login()"
       tuiButton
       size="m"
+      type="submit"
     >
       Войти
-    </a>
-    <a
+    </button>
+    <button
       (click)="register()"
       tuiButton
       size="m"
       class="auth-btn"
     >
       Зарегистрироваться
-    </a>
+    </button>
   </form>
 </div>

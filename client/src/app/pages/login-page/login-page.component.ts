@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/api/services/login.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login-page',
@@ -9,11 +10,17 @@ import { LoginService } from 'src/app/api/services/login.service';
   styleUrls: ['./login-page.component.less']
 })
 export class LoginPageComponent {
-  testForm = new FormGroup({
-    testValue: new FormControl('mail@mail.ru')
+  form = this.formBuilder.group({
+    login: new FormControl(''),
+    password: new FormControl(''),
+    saveData: new FormControl('')
   });
 
-  constructor(private router: Router, private loginService: LoginService) {
+  constructor(
+    private router: Router,
+    private loginService: LoginService,
+    private formBuilder: FormBuilder
+  ) {
     this.loginService.setIsLoggedIn(false);
   }
 
@@ -25,5 +32,9 @@ export class LoginPageComponent {
     //проверка
     this.router.navigate(['/profile']);
     this.loginService.setIsLoggedIn(true);
+  }
+
+  onSubmit(): void {
+    console.log(this.form.value);
   }
 }
