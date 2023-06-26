@@ -62,15 +62,18 @@
     >
       Выберите Пол
     </div>
-    <tui-input
+    <tui-input-phone
       class="input"
       formControlName="phoneNumber"
       required="true"
       #phoneNumber
     >
       Номер телефона
-      <input tuiTextfield />
-    </tui-input>
+      <input
+        tuiTextfield
+        autocomplete="tel"
+      />
+    </tui-input-phone>
     <div
       *ngIf="isPhoneNumberEmpty"
       class="invalid"
@@ -92,36 +95,28 @@
     >
       Введите Электронную почту
     </div>
-    <tui-input
+    <tui-input-password
       class="input"
       formControlName="password"
       required="true"
       #password
     >
       Придумайте пароль
-      <input
-        tuiTextfield
-        type="password"
-      />
-    </tui-input>
+    </tui-input-password>
     <div
       *ngIf="isPasswordEmpty"
       class="invalid"
     >
       Введите пароль
     </div>
-    <tui-input
+    <tui-input-password
       class="input"
       formControlName="confirmPassword"
       required="true"
       #confirmPassword
     >
       Подтвердите пароль
-      <input
-        tuiTextfield
-        type="password"
-      />
-    </tui-input>
+    </tui-input-password>
     <div
       *ngIf="isConfirmPasswordEmpty"
       class="invalid"

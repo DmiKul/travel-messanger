@@ -19,14 +19,13 @@
     >
       Введите Логин или телефон
     </div>
-    <tui-input
+    <tui-input-password
       class="input"
       formControlName="password"
       required="true"
     >
       Пароль
-      <input tuiTextfield type="password"/>
-    </tui-input>
+    </tui-input-password>
     <div
       *ngIf="isPasswordEmpty"
       class="invalid"
