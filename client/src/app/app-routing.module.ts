@@ -5,8 +5,9 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegistrationPageComponent } from './pages/registration-page/registration-page.component';
 
 const routes: Routes = [
-  { path: 'profile', component: UserPageComponent, title: 'Профиль' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginPageComponent, title: 'Вход' },
+  { path: 'profile', component: UserPageComponent, title: 'Профиль' },
   {
     path: 'register',
     component: RegistrationPageComponent,

@@ -1,37 +1,67 @@
 <div class="container container_auth">
   <h3 class="tui-text_h4">Вход в Мессенджер</h3>
   <form
-    [formGroup]="form"
+    [formGroup]="loginForm"
     (ngSubmit)="onSubmit()"
     class="auth-form"
   >
-    <tui-input
-      class="input"
-      formControlName="login"
-      required="true"
-    >
-      Логин или телефон
-      <input tuiTextfield />
-    </tui-input>
-    <div
-      *ngIf="isLoginEmpty"
-      class="invalid"
-    >
-      Введите Логин или телефон
+    <div class="wrapper">
+      <tui-input
+        class="input"
+        formControlName="login"
+        required="true"
+        [ngClass]="{
+          invalid:
+            _login?.invalid &&
+            (_login?.touched || _login?.dirty || isFormSubmitted)
+        }"
+      >
+        Логин или телефон
+        <input tuiTextfield />
+      </tui-input>
+      <div
+        *ngIf="
+          _login?.invalid &&
+          (_login?.touched || _login?.dirty || isFormSubmitted)
+        "
+      >
+        <div
+          *ngIf="_login?.errors?.['required']"
+          class="invalid-message"
+        >
+          Поле не заполнено
+        </div>
+      </div>
     </div>
-    <tui-input-password
-      class="input"
-      formControlName="password"
-      required="true"
-    >
-      Пароль
-    </tui-input-password>
-    <div
-      *ngIf="isPasswordEmpty"
-      class="invalid"
-    >
-      Введите Пароль
+
+    <div class="wrapper">
+      <tui-input-password
+        class="input"
+        formControlName="password"
+        required="true"
+        [ngClass]="{
+          invalid:
+            _password?.invalid &&
+            (_password?.touched || _password?.dirty || isFormSubmitted)
+        }"
+      >
+        Пароль
+      </tui-input-password>
+      <div
+        *ngIf="
+          _password?.invalid &&
+          (_password?.touched || _password?.dirty || isFormSubmitted)
+        "
+      >
+        <div
+          *ngIf="_password?.errors?.['required']"
+          class="invalid-message"
+        >
+          Поле не заполнено
+        </div>
+      </div>
     </div>
+
     <div class="save-data">
       <tui-checkbox formControlName="saveData"></tui-checkbox>
       <span class="tui-text_body-m-2">Сохранить вход</span>

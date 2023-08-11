@@ -15,6 +15,9 @@
   position: relative;
   margin-bottom: 30px;
 }
+.input-title {
+  margin-bottom: 15px;
+}
 .gender {
   display: flex;
   gap: 30px;
@@ -35,7 +38,16 @@
   --tui-primary-hover: rgb(55, 180, 55);
   --tui-primary-active: rgb(15, 131, 15);
 }
+.invalid-message {
+  color: red;
+  border-bottom: 1px solid red;
+}
 .invalid {
-  border-top: 2px solid red;
+  border-color: red;
+}
+:host ::ng-deep .invalid div::after {
+  border-color: red;
+}
+:host ::ng-deep .invalid input::after {
   color: red;
 }

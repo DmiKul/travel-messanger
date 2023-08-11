@@ -22,7 +22,16 @@
     --tui-primary-active: rgb(15, 131, 15);
   }
 }
+.invalid-message {
+  color: red;
+  border-bottom: 1px solid red;
+}
 .invalid {
-  border-top: 2px solid red;
+  border-color: red;
+}
+:host ::ng-deep .invalid div::after {
+  border-color: red;
+}
+:host ::ng-deep .invalid input::after {
   color: red;
 }

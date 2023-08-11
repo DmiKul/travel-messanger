@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/api/services/login.service';
 import { FormBuilder } from '@angular/forms';
@@ -10,21 +10,39 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./login-page.component.less']
 })
 export class LoginPageComponent {
-  form = this.formBuilder.group({
-    login: new FormControl(''),
-    password: new FormControl(''),
-    saveData: new FormControl('')
-  });
-
-  isLoginEmpty: boolean = false
-  isPasswordEmpty: boolean = false
+  loginForm!: FormGroup;
+  isFormSubmitted: boolean = false
+  isLoginDataCorrect: boolean = true
 
   constructor(
     private router: Router,
     private loginService: LoginService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private fb: FormBuilder
   ) {
     this.loginService.setIsLoggedIn(false);
+    this._createForm()
+  }
+
+  private _createForm(): void {
+    this.loginForm = this.fb.group(
+      {
+        login: ['', [Validators.required]],
+        password: ['', [Validators.required]],
+        saveData: ['']
+      },
+    );
+    this.loginForm.valueChanges.subscribe((v) => {
+      this.isFormSubmitted = false;
+    });
+  }
+
+  get _login() {
+    return this.loginForm.get('login');
+  }
+
+  get _password() {
+    return this.loginForm.get('password');
   }
 
   register() {
@@ -32,21 +50,13 @@ export class LoginPageComponent {
   }
 
   onSubmit(): void {
-    console.log(this.form.value);
+    console.log(this.loginForm)
+    this.isFormSubmitted = true
+    if (this.loginForm.status == 'VALID') {
+      //todo: проверка
 
-    this.isLoginEmpty = false
-    this.isPasswordEmpty = false
-
-    if (!this.form.value.login) {
-      this.isLoginEmpty = true
+      this.router.navigate(['/profile']);
+      this.loginService.setIsLoggedIn(true);
     }
-    if (!this.form.value.password) {
-      this.isPasswordEmpty = true
-    }
-
-    //проверка
-    
-    // this.router.navigate(['/profile']);
-    // this.loginService.setIsLoggedIn(true);
   }
 }
