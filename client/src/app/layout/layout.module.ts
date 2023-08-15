@@ -11,6 +11,7 @@ import { SearchInputComponent } from './components/search-input/search-input.com
 import { ThemeToggleButtonComponent } from './components/theme-toggle-button/theme-toggle-button.component';
 import { LayoutComponent } from './layout.component';
 import { NotificationButtonComponent } from './components/notification-button/notification-button.component';
+import {TuiThemeNightModule, TuiModeModule} from '@taiga-ui/core';
 
 @NgModule({
   declarations: [
@@ -20,15 +21,16 @@ import { NotificationButtonComponent } from './components/notification-button/no
     SearchInputComponent,
     LogoComponent,
     AvatarComponent,
-    NotificationButtonComponent,
-
+    NotificationButtonComponent
   ],
   imports: [
     CommonModule,
     TuiInputModule,
     TuiButtonModule,
     TuiTextfieldControllerModule,
-    TuiBadgedContentModule
+    TuiBadgedContentModule,
+    TuiThemeNightModule,
+    TuiModeModule
   ],
   exports: [LayoutComponent]
 })

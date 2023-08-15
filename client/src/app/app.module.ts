@@ -13,11 +13,16 @@ import { UserPageModule } from './pages/user-page/user-page.module';
 import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginPageModule } from './pages/login-page/login-page.module';
+import { RegistrationPageModule } from './pages/registration-page/registration-page.module';
+import {TuiThemeNightModule, TuiModeModule} from '@taiga-ui/core';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     UserPageModule,
+    LoginPageModule,
+    RegistrationPageModule,
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot({}, {}),
@@ -25,7 +30,9 @@ import { AppComponent } from './app.component';
     TuiRootModule,
     TuiDialogModule,
     TuiAlertModule,
-    LayoutModule
+    LayoutModule,
+    TuiThemeNightModule,
+    TuiModeModule,
   ],
   providers: [{ provide: TUI_SANITIZER, useClass: NgDompurifySanitizer }],
   bootstrap: [AppComponent]

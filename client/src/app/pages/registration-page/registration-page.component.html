@@ -1,0 +1,278 @@
+<div class="container container_register">
+  <h3 class="tui-text_h4 title">Регистрация</h3>
+  <form
+    [formGroup]="registerForm"
+    (ngSubmit)="onSubmit()"
+    class="register-form"
+  >
+    <div class="wrapper">
+      <tui-input
+        class="input"
+        formControlName="firstName"
+        required="true"
+        #firstName
+        [ngClass]="{
+          invalid:
+            _firstName?.invalid &&
+            (_firstName?.touched || _firstName?.dirty || isFormSubmitted)
+        }"
+      >
+        Имя
+        <input tuiTextfield />
+      </tui-input>
+      <div
+        *ngIf="
+          _firstName?.invalid &&
+          (_firstName?.touched || _firstName?.dirty || isFormSubmitted)
+        "
+      >
+        <div
+          *ngIf="_firstName?.errors?.['required']"
+          class="invalid-message"
+        >
+          Поле не заполнено
+        </div>
+        <!-- <div
+        *ngIf="_email?.errors?.['email'] || _email?.errors?.['invalidDomain']"
+        class="invalid-message"
+      >
+        Email введен некорректно
+      </div> -->
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <tui-input
+        class="input"
+        formControlName="lastName"
+        required="true"
+        #lastName
+        [ngClass]="{
+          invalid:
+            _lastName?.invalid &&
+            (_lastName?.touched || _lastName?.dirty || isFormSubmitted)
+        }"
+      >
+        Фамилия
+        <input tuiTextfield />
+      </tui-input>
+      <div
+        *ngIf="
+          _lastName?.invalid &&
+          (_lastName?.touched || _lastName?.dirty || isFormSubmitted)
+        "
+      >
+        <div
+          *ngIf="_lastName?.errors?.['required']"
+          class="invalid-message"
+        >
+          Поле не заполнено
+        </div>
+        <!-- <div
+        *ngIf="_email?.errors?.['email'] || _email?.errors?.['invalidDomain']"
+        class="invalid-message"
+      >
+        Email введен некорректно
+      </div> -->
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <h4 class="tui-text_body-l input-title">Пол</h4>
+      <div class="gender">
+        <div class="gender_item">
+          <tui-radio
+            formControlName="gender"
+            item="male"
+            #male
+            required="true"
+            [ngClass]="{
+              invalid: _gender?.invalid && isFormSubmitted
+            }"
+          ></tui-radio>
+          <span>Мужской</span>
+        </div>
+        <div class="gender_item">
+          <tui-radio
+            formControlName="gender"
+            item="female"
+            #female
+            required="true"
+            [ngClass]="{
+              invalid: _gender?.invalid && isFormSubmitted
+            }"
+          ></tui-radio>
+          <span>Женский</span>
+        </div>
+      </div>
+      <div
+        *ngIf="isFormSubmitted && _gender?.errors?.['required']"
+        class="invalid-message"
+      >
+        Поле не заполнено
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <tui-input-phone
+        class="input"
+        formControlName="phoneNumber"
+        required="true"
+        #phoneNumber
+        [ngClass]="{
+          invalid:
+            _phoneNumber?.invalid &&
+            (_phoneNumber?.touched || _phoneNumber?.dirty || isFormSubmitted)
+        }"
+      >
+        Номер телефона
+        <input
+          tuiTextfield
+          autocomplete="tel"
+        />
+      </tui-input-phone>
+      <div
+        *ngIf="
+          _phoneNumber?.invalid &&
+          (_phoneNumber?.touched || _phoneNumber?.dirty || isFormSubmitted)
+        "
+      >
+        <div
+          *ngIf="_phoneNumber?.errors?.['required']"
+          class="invalid-message"
+        >
+          Поле не заполнено
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <tui-input
+        class="input"
+        formControlName="email"
+        required="true"
+        #email
+        [ngClass]="{
+          invalid:
+            _email?.invalid &&
+            (_email?.touched || _email?.dirty || isFormSubmitted)
+        }"
+      >
+        Электронная почта
+        <input tuiTextfield />
+      </tui-input>
+      <div
+        *ngIf="
+          _email?.invalid &&
+          (_email?.touched || _email?.dirty || isFormSubmitted)
+        "
+      >
+        <div
+          *ngIf="_email?.errors?.['required']"
+          class="invalid-message"
+        >
+          Поле не заполнено
+        </div>
+        <div
+          *ngIf="_email?.errors?.['email'] || _email?.errors?.['invalidDomain']"
+          class="invalid-message"
+        >
+          Email введен некорректно
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <tui-input-password
+        class="input"
+        formControlName="password"
+        required="true"
+        #password
+        [ngClass]="{
+          invalid:
+            _password?.invalid &&
+            (_password?.touched || _password?.dirty || isFormSubmitted)
+        }"
+      >
+        Придумайте пароль
+      </tui-input-password>
+      <div
+        *ngIf="
+          _password?.invalid &&
+          (_password?.touched || _password?.dirty || isFormSubmitted)
+        "
+      >
+        <div
+          *ngIf="_password?.errors?.['required']"
+          class="invalid-message"
+        >
+          Поле не заполнено
+        </div>
+        <div
+          *ngIf="_password?.errors?.['minlength']"
+          class="invalid-message"
+        >
+          Минимальная длина - 6 символов
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <tui-input-password
+        class="input"
+        formControlName="passwordConfirm"
+        required="true"
+        #passwordConfirm
+        [ngClass]="{
+          invalid:
+            _passwordConfirm?.invalid &&
+            (_passwordConfirm?.touched ||
+              _passwordConfirm?.dirty ||
+              isFormSubmitted)
+        }"
+      >
+        Подтвердите пароль
+      </tui-input-password>
+      <div
+        *ngIf="
+          _passwordConfirm?.invalid &&
+          (_passwordConfirm?.touched ||
+            _passwordConfirm?.dirty ||
+            isFormSubmitted)
+        "
+      >
+        <div
+          *ngIf="_passwordConfirm?.errors?.['required']"
+          class="invalid-message"
+        >
+          Поле не заполнено
+        </div>
+      </div>
+      <div
+        *ngIf="!_passwordConfirm?.errors?.['required'] && registerForm?.errors?.['notSame']"
+        class="invalid-message"
+      >
+        Пароли не совпадают
+      </div>
+    </div>
+
+    <div class="btns">
+      <button
+        type="submit"
+        tuiButton
+        size="m"
+        class="btn btn-done"
+      >
+        Готово
+      </button>
+      <button
+        (click)="backToLogin()"
+        tuiButton
+        size="m"
+        class="btn btn-back"
+      >
+        Назад
+      </button>
+    </div>
+  </form>
+</div>

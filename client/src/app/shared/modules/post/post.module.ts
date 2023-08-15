@@ -4,16 +4,28 @@ import { CommonModule } from '@angular/common';
 import { TuiButtonModule } from '@taiga-ui/core';
 import { PostControlBarComponent } from './components/post-control-bar/post-control-bar.component';
 import { PostImagesComponent } from './components/post-images/post-images.component';
-import { TuiSvgModule} from '@taiga-ui/core';
-import {TuiCarouselModule, TuiPaginationModule} from '@taiga-ui/kit';
+import { TuiSvgModule } from '@taiga-ui/core';
+import { TuiCarouselModule, TuiPaginationModule } from '@taiga-ui/kit';
 import { PostHeaderComponent } from './components/post-header/post-header.component';
 import { PostTextComponent } from './components/post-text/post-text.component';
-
-
+import { SectionModule } from '../section/section.module';
 
 @NgModule({
-  declarations: [PostComponent, PostControlBarComponent, PostImagesComponent, PostHeaderComponent, PostTextComponent],
-  imports: [CommonModule, TuiButtonModule, TuiSvgModule, TuiCarouselModule, TuiPaginationModule],
+  declarations: [
+    PostComponent,
+    PostControlBarComponent,
+    PostImagesComponent,
+    PostHeaderComponent,
+    PostTextComponent
+  ],
+  imports: [
+    CommonModule,
+    TuiButtonModule,
+    TuiSvgModule,
+    TuiCarouselModule,
+    TuiPaginationModule,
+    SectionModule
+  ],
   exports: [PostComponent]
 })
 export class PostModule {}

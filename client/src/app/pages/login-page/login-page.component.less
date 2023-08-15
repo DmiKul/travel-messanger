@@ -1,0 +1,37 @@
+.container_auth {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  // height: 100vh;
+  padding-top: 30px;
+}
+.auth-form {
+  margin-top: 30px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  .save-data {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .auth-btn {
+    --tui-primary: rgb(13, 164, 13);
+    --tui-primary-hover: rgb(55, 180, 55);
+    --tui-primary-active: rgb(15, 131, 15);
+  }
+}
+.invalid-message {
+  color: red;
+  border-bottom: 1px solid red;
+}
+.invalid {
+  border-color: red;
+}
+:host ::ng-deep .invalid div::after {
+  border-color: red;
+}
+:host ::ng-deep .invalid input::after {
+  color: red;
+}

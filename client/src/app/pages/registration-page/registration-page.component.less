@@ -1,0 +1,53 @@
+.container_register {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.title {
+  margin-bottom: 15px;
+}
+.register-form {
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+  margin-bottom: 30px;
+}
+.input-title {
+  margin-bottom: 15px;
+}
+.gender {
+  display: flex;
+  gap: 30px;
+}
+.gender_item {
+  display: flex;
+  gap: 10px;
+}
+.btns {
+  display: flex;
+  justify-content: space-between;
+}
+.btn {
+  width: 45%;
+}
+.btn-done {
+  --tui-primary: rgb(13, 164, 13);
+  --tui-primary-hover: rgb(55, 180, 55);
+  --tui-primary-active: rgb(15, 131, 15);
+}
+.invalid-message {
+  color: red;
+  border-bottom: 1px solid red;
+}
+.invalid {
+  border-color: red;
+}
+:host ::ng-deep .invalid div::after {
+  border-color: red;
+}
+:host ::ng-deep .invalid input::after {
+  color: red;
+}
