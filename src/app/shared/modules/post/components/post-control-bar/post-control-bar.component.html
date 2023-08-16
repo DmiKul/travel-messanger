@@ -6,6 +6,8 @@
       size="s"
       appearance="icon"
       title="Like"
+      (click)="like()"
+      [ngClass]="{'liked': isLiked}"
     ></button>
 
     <button
@@ -22,6 +24,8 @@
       size="s"
       appearance="icon"
       title="Dislike"
+      (click)="dislike()"
+      [ngClass]="{'disliked': isDisliked}"
     ></button>
   </span>
 
