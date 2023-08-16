@@ -7,7 +7,7 @@
       appearance="icon"
       title="Like"
       (click)="like()"
-      [ngClass]="{'liked': isLiked}"
+      [ngClass]="{'liked-light-theme': isLiked && !isDarkMode, 'liked-dark-theme': isLiked && isDarkMode}"
     ></button>
 
     <button
@@ -25,7 +25,7 @@
       appearance="icon"
       title="Dislike"
       (click)="dislike()"
-      [ngClass]="{'disliked': isDisliked}"
+      [ngClass]="{'disliked-light-theme': isDisliked && !isDarkMode, 'disliked-dark-theme': isDisliked && isDarkMode}"
     ></button>
   </span>
 

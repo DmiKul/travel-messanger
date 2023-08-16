@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DarkModeService } from 'src/app/api/services/darkMode';
 
 @Component({
   selector: 'app-post-control-bar',
@@ -8,8 +9,12 @@ import { Component } from '@angular/core';
 export class PostControlBarComponent {
   isLiked: boolean = false
   isDisliked: boolean = false
+  isDarkMode: boolean = false
 
-  constructor() {
+  constructor(private darkModeService: DarkModeService) {
+    this.darkModeService.get().subscribe((isDarkMode) => {
+      this.isDarkMode = isDarkMode
+    })
     //todo: устанавливать значения лайка, дизлайка
   }
 
