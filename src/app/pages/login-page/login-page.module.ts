@@ -9,6 +9,7 @@ import {
   TUI_CHECKBOX_OPTIONS,
   TUI_CHECKBOX_DEFAULT_OPTIONS
 } from '@taiga-ui/core';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [LoginPageComponent],
   imports: [
@@ -20,6 +21,7 @@ import {
     TuiSvgModule,
     TuiCheckboxModule,
     TuiInputPasswordModule,
+    HttpClientModule
   ],
   exports: [LoginPageComponent]
 })

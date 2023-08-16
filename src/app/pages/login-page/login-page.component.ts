@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/api/services/login.service';
 import { FormBuilder } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login-page',
@@ -18,7 +19,8 @@ export class LoginPageComponent {
     private router: Router,
     private loginService: LoginService,
     private formBuilder: FormBuilder,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private http: HttpClient
   ) {
     this.loginService.setIsLoggedIn(false);
     this._createForm()
@@ -33,6 +35,7 @@ export class LoginPageComponent {
       },
     );
     this.loginForm.valueChanges.subscribe((v) => {
+      this.isLoginDataCorrect = true
       this.isFormSubmitted = false;
     });
   }
@@ -53,10 +56,17 @@ export class LoginPageComponent {
     console.log(this.loginForm)
     this.isFormSubmitted = true
     if (this.loginForm.status == 'VALID') {
-      //todo: проверка
-
-      this.router.navigate(['/profile']);
-      this.loginService.setIsLoggedIn(true);
+      const login: string = this._login?.value
+      const password: string = this._password?.value
+      this.http.get<any[]>('http://localhost:3000/users/').subscribe(data => {
+        this.isLoginDataCorrect = data.some(user => {
+          return user.email === login && user.password === password
+        })
+        if (this.isLoginDataCorrect) {
+          this.router.navigate(['/profile']);
+          this.loginService.setIsLoggedIn(true);
+        }
+      })
     }
   }
 }

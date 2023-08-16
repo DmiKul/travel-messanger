@@ -10,6 +10,7 @@ import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/api/services/login.service';
 import { emailDomainValidator } from './validators/emailDomainValidator';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-registration-page',
   templateUrl: './registration-page.component.html',
@@ -24,7 +25,8 @@ export class RegistrationPageComponent {
     private router: Router,
     private loginService: LoginService,
     private formBuilder: FormBuilder,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private http: HttpClient
   ) {
     this.loginService.setIsLoggedIn(false);
     this._createForm();
@@ -102,8 +104,23 @@ export class RegistrationPageComponent {
 
     if (this.registerForm.status == 'VALID') {
       //todo: проверка, нет ли уже такого пользователя
+      const email: string = this._email?.value
+      const password: string = this._password?.value
 
-      this.router.navigate(['/login']);
+      const newUser = {
+        id: '',
+        email: email,
+        password: password
+      }
+      this.http.get<any[]>('http://localhost:3000/users/').subscribe( data => {
+        this.isEmailFree = !data.some(user => user.email === email)
+      })
+      if (this.isEmailFree) {
+        this.http.post('http://localhost:3000/users/', newUser).subscribe(() => {
+          console.log('add user')
+        })
+        this.router.navigate(['/login']);
+      }
     }
   }
 }

@@ -5,6 +5,7 @@ import { TuiBadgedContentModule, TuiInputModule } from '@taiga-ui/kit';
 import { RegistrationPageComponent } from './registration-page.component';
 import { TuiButtonModule, TuiSvgModule } from '@taiga-ui/core';
 import {TuiRadioModule, TuiInputPhoneModule, TuiInputPasswordModule} from '@taiga-ui/kit';
+import { HttpClientModule } from '@angular/common/http';
 // import {TUI_RADIO_OPTIONS, TUI_RADIO_DEFAULT_OPTIONS} from '@taiga-ui/core';
 
 @NgModule({
@@ -29,7 +30,8 @@ import {TuiRadioModule, TuiInputPhoneModule, TuiInputPasswordModule} from '@taig
     TuiSvgModule,
     TuiRadioModule,
     TuiInputPhoneModule,
-    TuiInputPasswordModule
+    TuiInputPasswordModule,
+    HttpClientModule
   ],
   exports: [
     RegistrationPageComponent
