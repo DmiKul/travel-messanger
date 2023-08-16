@@ -10,6 +10,8 @@ import { PostHeaderComponent } from './components/post-header/post-header.compon
 import { PostTextComponent } from './components/post-text/post-text.component';
 import { SectionModule } from '../section/section.module';
 import { UserAvatarModule } from '../user-avatar/user-avatar.module';
+import {TuiHostedDropdownModule} from '@taiga-ui/core';
+import {TuiDataListModule} from '@taiga-ui/core';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { UserAvatarModule } from '../user-avatar/user-avatar.module';
     TuiCarouselModule,
     TuiPaginationModule,
     SectionModule,
-    UserAvatarModule
+    UserAvatarModule,
+    TuiHostedDropdownModule,
+    TuiDataListModule
   ],
   exports: [PostComponent]
 })

@@ -28,4 +28,16 @@ export class PostHeaderComponent {
     const hours = this.date.hours();
     return `${this.date.format('DD MMM')} в ${hours}:${minutes}`;
   }
+
+  delete() {
+
+  }
+
+  edit() {
+
+  }
+
+  pin() {
+
+  }
 }

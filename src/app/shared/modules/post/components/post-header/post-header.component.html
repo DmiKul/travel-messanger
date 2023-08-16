@@ -5,16 +5,64 @@
       class="profile-image"
       alt="profile-image"
     /> -->
-    <app-user-avatar [src]="authorImg" size="s"></app-user-avatar>
+    <app-user-avatar
+      [src]="authorImg"
+      size="s"
+    ></app-user-avatar>
     <div class="info">
       <p class="tui-text_body-xl">{{ authorFName }} {{ authorLName }}</p>
-      <p class="info__time tui-text_body-s-2">{{getPostTimeInfo()}}</p>
+      <p class="info__time tui-text_body-s-2">{{ getPostTimeInfo() }}</p>
     </div>
   </div>
-  <button
+  <!-- <button
     tuiIconButton
     appearance="icon"
     icon="tuiIconMoreHorizontalLarge"
     class="btn"
-  ></button>
+  ></button> -->
+  <tui-hosted-dropdown [content]="dropdown">
+    <button
+      tuiIconButton
+      appearance="icon"
+      icon="tuiIconMoreHorizontalLarge"
+      class="btn"
+    ></button>
+  </tui-hosted-dropdown>
+  <ng-template #dropdown>
+    <tui-data-list>
+      <button tuiOption>
+        <button
+          tuiButton
+          icon="tuiIconTrash2"
+          appearance="icon"
+          size="s"
+          (click)="delete()"
+        >
+          Удалить
+        </button>
+      </button>
+      <button tuiOption>
+        <button
+          tuiButton
+          icon="tuiIconEdit2"
+          appearance="icon"
+          size="s"
+          (click)="edit()"
+        >
+          Редактировать
+        </button>
+      </button>
+      <button tuiOption>
+        <button
+          tuiButton
+          icon="tuiIconPaperclip"
+          appearance="icon"
+          size="s"
+          (click)="pin()"
+        >
+          Закрепить
+        </button>
+      </button>
+    </tui-data-list>
+  </ng-template>
 </div>
