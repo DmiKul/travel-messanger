@@ -12,6 +12,7 @@ import { ThemeToggleButtonComponent } from './components/theme-toggle-button/the
 import { LayoutComponent } from './layout.component';
 import { NotificationButtonComponent } from './components/notification-button/notification-button.component';
 import {TuiThemeNightModule, TuiModeModule} from '@taiga-ui/core';
+import { UserAvatarModule } from '@shared/modules/user-avatar/user-avatar.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {TuiThemeNightModule, TuiModeModule} from '@taiga-ui/core';
     TuiTextfieldControllerModule,
     TuiBadgedContentModule,
     TuiThemeNightModule,
-    TuiModeModule
+    TuiModeModule,
+    UserAvatarModule
   ],
   exports: [LayoutComponent]
 })

@@ -1,10 +1,11 @@
 <div class="post-header">
   <div class="wrapper">
-    <img
+    <!-- <img
       [src]="authorImg"
       class="profile-image"
       alt="profile-image"
-    />
+    /> -->
+    <app-user-avatar [src]="authorImg" size="s"></app-user-avatar>
     <div class="info">
       <p class="tui-text_body-xl">{{ authorFName }} {{ authorLName }}</p>
       <p class="info__time tui-text_body-s-2">{{getPostTimeInfo()}}</p>

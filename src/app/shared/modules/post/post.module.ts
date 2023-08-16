@@ -9,6 +9,7 @@ import { TuiCarouselModule, TuiPaginationModule } from '@taiga-ui/kit';
 import { PostHeaderComponent } from './components/post-header/post-header.component';
 import { PostTextComponent } from './components/post-text/post-text.component';
 import { SectionModule } from '../section/section.module';
+import { UserAvatarModule } from '../user-avatar/user-avatar.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { SectionModule } from '../section/section.module';
     PostControlBarComponent,
     PostImagesComponent,
     PostHeaderComponent,
-    PostTextComponent
+    PostTextComponent,
   ],
   imports: [
     CommonModule,
@@ -24,7 +25,8 @@ import { SectionModule } from '../section/section.module';
     TuiSvgModule,
     TuiCarouselModule,
     TuiPaginationModule,
-    SectionModule
+    SectionModule,
+    UserAvatarModule
   ],
   exports: [PostComponent]
 })

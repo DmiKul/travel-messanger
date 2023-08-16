@@ -18,7 +18,8 @@ export class UserPageComponent {
   firstImages!: string[];
 
   //info-section
-  avatar: string = '../../../assets/aa1b8ce6570e33aa6b0bc0c475f2895e.jpg';
+  // avatar: string = '../../../assets/aa1b8ce6570e33aa6b0bc0c475f2895e.jpg';
+  avatar: string = '';
   firstName: string = 'Дмитрий';
   lastName: string = 'Щедрин';
   isOnline: boolean = true;
@@ -55,7 +56,7 @@ export class UserPageComponent {
 
   //post-feed
   posts: IPost[] = new Array(15).fill({
-    authorImg: '../../../assets/images/img-example.png',
+    authorImg: '',
     authorFName: 'Серёжа',
     authorLName: 'Тенькаев',
     // photos: new Array(4).fill('https://fakeimg.pl/350x420/?text=Hello'),

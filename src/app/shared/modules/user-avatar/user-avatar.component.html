@@ -1,8 +1,6 @@
-<div class="avatar-wrapper">
-  <span class="bg"></span>
   <img
-    class="user-avatar main"
-    [src]="src"
+    class="user-avatar"
+    [src]="src || '../../../../assets/images/default-avatar.png'"
     alt="user-avatar"
+    [ngClass]="{'s-size': size == 's', 'l-size': size == 'l'}"
   />
-</div>

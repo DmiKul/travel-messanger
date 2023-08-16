@@ -1,24 +1,10 @@
-@avatar-size: 150px;
-
-.avatar-wrapper {
-  padding: calc(@avatar-size / 5);
-
-  .user-avatar {
-    border: 3px solid var(--tui-primary);
-    border-radius: 20px;
-    &.main {
-      position: relative;
-      max-width: @avatar-size;
-      max-height: @avatar-size;
-    }
-  }
-  .bg {
-    content: '';
-    position: absolute;
-    width: @avatar-size;
-    height: @avatar-size;
-    background: var(--tui-primary);
-    border-radius: 20px;
-    transform: rotate(45deg);
-  }
+.user-avatar {
+  display: block;
+  border-radius: 50%;
+}
+.s-size {
+  width: 45px;
+}
+.l-size {
+  width: 150px;
 }
