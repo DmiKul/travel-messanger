@@ -3,7 +3,7 @@
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 240px 240px auto;
+  grid-template-rows: 240px 240px auto auto;
 
   gap: @indent;
   // grid-template-areas:
@@ -15,6 +15,7 @@
   grid-template-areas:
   "info info info info"
   "photos photos photos friends"
+  "create-post create-post create-post wrapper"
   "post-feed post-feed post-feed wrapper";
 
 }
@@ -29,6 +30,9 @@
 }
 .friends {
   grid-area: friends;
+}
+.create-post {
+  grid-area: create-post;
 }
 .post-feed {
   grid-area: post-feed;

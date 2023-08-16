@@ -17,6 +17,7 @@ import { LoginPageModule } from './pages/login-page/login-page.module';
 import { RegistrationPageModule } from './pages/registration-page/registration-page.module';
 import {TuiThemeNightModule, TuiModeModule} from '@taiga-ui/core';
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [

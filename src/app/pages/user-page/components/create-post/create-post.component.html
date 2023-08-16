@@ -1,0 +1,34 @@
+<app-section>
+  <div class="content">
+    <div class="header">
+      <div class="wrapper">
+        <app-user-avatar size="s"></app-user-avatar>
+        <p>Что у Вас нового?</p>
+      </div>
+      <!-- <button tuiButton iconRight="tuiIconImageLarge" [size]="'m'" class="img-btn"></button> -->
+      <tui-badged-content>
+        <button
+          tuiIconButton
+          appearance="secondary"
+          icon="tuiIconImageLarge"
+          size="m"
+          title="Добавить фото"
+        ></button>
+      </tui-badged-content>
+
+      <!-- <tui-input-files label=" " class="input-files"></tui-input-files> -->
+    </div>
+    <tui-text-area
+      [expandable]="true"
+      data-size="m"
+      class="text"
+    ></tui-text-area>
+    <button
+      tuiButton
+      size="s"
+      class="publish-btn"
+    >
+      Опубликовать
+    </button>
+  </div>
+</app-section>
