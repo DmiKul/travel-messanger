@@ -6,8 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./create-post.component.less']
 })
 export class CreatePostComponent {
+  isShowed: boolean = false
 
-  constructor() {
+  constructor() {}
+
+  showOrHide() {
+    //todo: проверка, что нет введенных данных(текста или файлов)
+    this.isShowed = !this.isShowed
   }
 
 }
