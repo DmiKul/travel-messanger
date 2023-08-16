@@ -12,11 +12,13 @@ export class DarkModeService {
 
   set(value: boolean): void {
     if (value) {
+      localStorage.setItem('darkMode', 'true')
       document.documentElement.style.setProperty('--background-color', '#141414')
       document.documentElement.style.setProperty('--section-border-color', '#a3a0a04b')
       document.documentElement.style.setProperty('--section-background-color', '#222222')
       document.documentElement.style.setProperty('--header-background-color', '#222222')
     } else {
+      localStorage.removeItem('darkMode')
       document.documentElement.style.setProperty('--background-color', '#fff')
       document.documentElement.style.setProperty('--section-border-color', '#ece7e7')
       document.documentElement.style.setProperty('--section-background-color', '#fff')

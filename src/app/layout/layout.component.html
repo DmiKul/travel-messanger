@@ -3,7 +3,7 @@
       <app-logo class="logo"></app-logo>
       <div class="container header__container">
         <app-search-input *ngIf="isLoggedIn"></app-search-input>
-        <app-theme-toggle-button (click)="toggleTheme()"></app-theme-toggle-button>
+        <app-theme-toggle-button></app-theme-toggle-button>
       </div>
       <div *ngIf="isLoggedIn" class="right-side">
         <app-notification-button></app-notification-button>
