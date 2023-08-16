@@ -13,6 +13,8 @@ import { LayoutComponent } from './layout.component';
 import { NotificationButtonComponent } from './components/notification-button/notification-button.component';
 import {TuiThemeNightModule, TuiModeModule} from '@taiga-ui/core';
 import { UserAvatarModule } from '@shared/modules/user-avatar/user-avatar.module';
+import {TuiHostedDropdownModule} from '@taiga-ui/core';
+import {TuiDataListModule} from '@taiga-ui/core';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { UserAvatarModule } from '@shared/modules/user-avatar/user-avatar.module
     TuiBadgedContentModule,
     TuiThemeNightModule,
     TuiModeModule,
-    UserAvatarModule
+    UserAvatarModule,
+    TuiHostedDropdownModule,
+    TuiDataListModule
   ],
   exports: [LayoutComponent]
 })

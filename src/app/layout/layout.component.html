@@ -1,15 +1,50 @@
 <header class="header">
-    <div class="header__content">
-      <app-logo class="logo"></app-logo>
-      <div class="container header__container">
-        <app-search-input *ngIf="isLoggedIn"></app-search-input>
-        <app-theme-toggle-button></app-theme-toggle-button>
-      </div>
-      <div *ngIf="isLoggedIn" class="right-side">
-        <app-notification-button></app-notification-button>
-        <!-- <app-avatar></app-avatar> -->
-        <app-user-avatar size="s"></app-user-avatar>
-      </div>
+  <div class="header__content">
+    <app-logo class="logo"></app-logo>
+    <div class="container header__container">
+      <app-search-input *ngIf="isLoggedIn"></app-search-input>
+      <app-theme-toggle-button></app-theme-toggle-button>
+    </div>
+    <div
+      *ngIf="isLoggedIn"
+      class="right-side"
+    >
+      <app-notification-button></app-notification-button>
+      <!-- <app-avatar></app-avatar> -->
+      <!-- <app-user-avatar size="s"></app-user-avatar> -->
+      <tui-hosted-dropdown [content]="dropdown">
+        <app-user-avatar
+          class="avatar"
+          size="s"
+        ></app-user-avatar>
+      </tui-hosted-dropdown>
+      <ng-template #dropdown>
+        <tui-data-list>
+          <button tuiOption>
+            <button
+              tuiButton
+              icon="tuiIconSettings"
+              appearance="icon"
+              size="m"
+              (click)="toSettings()"
+            >
+              Настройки
+            </button>
+          </button>
+          <button tuiOption>
+            <button
+              tuiButton
+              icon="tuiIconLogOut"
+              appearance="icon"
+              size="m"
+              (click)="logout()"
+            >
+              Выйти
+            </button>
+          </button>
+        </tui-data-list>
+      </ng-template>
+    </div>
   </div>
 </header>
 <ng-content [isLoggedIn]="isLoggedIn"></ng-content>
