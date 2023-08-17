@@ -1,6 +1,9 @@
 <app-section>
   <div class="content">
-    <div class="header" (click)="showOrHide()">
+    <div
+      class="header"
+      (click)="showOrHide()"
+    >
       <div class="wrapper">
         <app-user-avatar size="s"></app-user-avatar>
         <p>Что у Вас нового?</p>
@@ -14,10 +17,11 @@
           title="Добавить фото"
         ></button>
       </tui-badged-content>
-
-      <!-- <tui-input-files label=" " class="input-files"></tui-input-files> -->
     </div>
-    <div class="main" *ngIf="isShowed">
+    <div
+      class="main"
+      *ngIf="isShowed"
+    >
       <tui-text-area
         [expandable]="true"
         data-size="m"
