@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { LoginService } from 'src/app/api/services/login.service';
 import { FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { UserDataService } from 'src/app/api/services/user-data.service';
+import { IUser } from '@customTypes/models';
 
 @Component({
   selector: 'app-login-page',
@@ -20,7 +22,8 @@ export class LoginPageComponent {
     private loginService: LoginService,
     private formBuilder: FormBuilder,
     private fb: FormBuilder,
-    private http: HttpClient
+    private http: HttpClient,
+    private userDataService: UserDataService
   ) {
     this.loginService.setIsLoggedIn(false);
     this._createForm()
@@ -58,9 +61,15 @@ export class LoginPageComponent {
     if (this.loginForm.status == 'VALID') {
       const login: string = this._login?.value
       const password: string = this._password?.value
-      this.http.get<any[]>('http://localhost:3000/users/').subscribe(data => {
+      this.http.get<IUser[]>('http://localhost:3000/users/').subscribe(data => {
         this.isLoginDataCorrect = data.some(user => {
-          return user.email === login && user.password === password
+          if (user.email === login && user.password === password) {
+            this.userDataService.saveUserData(user)
+            localStorage.setItem('userId', user.id)
+            return true
+          } else {
+            return false
+          }
         })
         if (this.isLoginDataCorrect) {
           this.router.navigate(['/profile']);

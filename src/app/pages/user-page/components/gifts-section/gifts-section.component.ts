@@ -6,6 +6,12 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./gifts-section.component.less']
 })
 export class GiftsSectionComponent {
-  @Input() public giftsCount!: number
-  @Input() public firstGifts!: string[]
+  @Input() public gifts: string[] = []
+  giftsCount: number = 0
+  firstGifts: string[] = []
+
+  constructor() {
+    this.giftsCount = this.gifts.length
+    this.firstGifts = this.gifts.slice(0, 4)
+  }
 }

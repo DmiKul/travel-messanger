@@ -1,3 +1,7 @@
+import { IFriend } from "./friendModel";
+import { IGroup } from "./groupModel";
+import { IPost } from "./postModel";
+
 export interface IUser {
   id: string;
   email: string;
@@ -6,9 +10,12 @@ export interface IUser {
   fname: string;
   lname: string;
   age: number;
+  city: string;
   avatar: string; // source (link) image
   chats: string[]; // chat id list
-  posts: string[]; // post id list
+  posts: IPost[]; // post id list
   photos: string[]; // photo id list
-  followers: string[]; // followers id list
+  followers: IFriend[]; // followers id list
+  gifts: string[];
+  groups: IGroup[];
 }

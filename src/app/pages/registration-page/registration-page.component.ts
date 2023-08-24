@@ -106,11 +106,25 @@ export class RegistrationPageComponent {
       //todo: проверка, нет ли уже такого пользователя
       const email: string = this._email?.value
       const password: string = this._password?.value
+      const firstName: string = this._firstName?.value
+      const lastName: string = this._lastName?.value
 
       const newUser = {
         id: '',
         email: email,
-        password: password
+        password: password,
+        isVerified: false,
+        fname: firstName,
+        lname: lastName,
+        city: '',
+        age: 0,
+        avatar: '',
+        chats: [],
+        posts: [],
+        photos: [],
+        followers: [],
+        gifts: [],
+        groups: []
       }
       this.http.get<any[]>('http://localhost:3000/users/').subscribe( data => {
         this.isEmailFree = !data.some(user => user.email === email)

@@ -7,7 +7,12 @@ import { IGroup } from '@customTypes/models';
   styleUrls: ['./groups-section.component.less']
 })
 export class GroupsSectionComponent {
-  @Input() public firstGroups!: IGroup[]
-  @Input() public groupsCount!: number
+  @Input() public groups: IGroup[] = []
+  groupsCount: number = 0
+  firstGroups: IGroup[] = []
 
+  constructor() {
+    this.groupsCount = this.groups.length
+    this.firstGroups = this.groups.slice(0, 4)
+  }
 }

@@ -7,16 +7,25 @@ import { IFriend } from '@customTypes/models';
   styleUrls: ['./friends-section.component.less']
 })
 export class FriendsSectionComponent {
-  @Input() public friendsCount!: number
-  @Input() public onlineFriendsCount!: number
-  @Input() public firstFriends!: IFriend[]
-  @Input() public firstOnlineFriends!: IFriend[]
+  @Input() public friends: IFriend[] = [];
+  friendsCount: number = 0;
+  firstFriends: IFriend[] = [];
+  onlineFriends: IFriend[] = [];
+  onlineFriendsCount: number = 0;
+  firstOnlineFriends: IFriend[] = [];
   constructor() {
-
-  }
-  ngOnInit() {
+    this.friendsCount = this.friends.length;
+    this.firstFriends = this.friends.slice(0, 8);
     if (this.onlineFriendsCount) {
-      this.firstFriends = this.firstFriends.slice(0, 4)
+      this.firstFriends = this.friends.slice(0, 4);
     }
+    this.friends.forEach((friend) => {
+      if (friend.isOnline) {
+        this.onlineFriends.push(friend);
+      }
+    });
+    this.onlineFriendsCount = this.onlineFriends.length;
+    this.firstOnlineFriends = this.onlineFriends.slice(0, 4)
   }
+  ngOnInit() {}
 }

@@ -14,10 +14,10 @@
   >
     <div
       class="photos-list"
-      *ngIf="firstImages.length; else noPhotos"
+      *ngIf="firstPhotos.length; else noPhotos"
     >
       <app-photo-item
-        *ngFor="let img of firstImages"
+        *ngFor="let img of firstPhotos"
         [src]="img"
       ></app-photo-item>
     </div>
