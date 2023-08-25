@@ -6,6 +6,7 @@ import * as moment from 'moment';
 import { LoginService } from 'src/app/api/services/login.service';
 import { UserDataService } from 'src/app/api/services/user-data.service';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-user-page',
@@ -15,6 +16,7 @@ import { Router } from '@angular/router';
 export class UserPageComponent {
   userId!: number;
   userData!: IUser;
+  isDataLoading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
   constructor(
     private userDataService: UserDataService,
@@ -26,6 +28,7 @@ export class UserPageComponent {
       this.userDataService.getUserData(this.userId).subscribe((userData) => {
         this.userData = userData;
         console.log('userData: ', this.userData);
+        this.isDataLoading.next(false)
       });
     } else {
       this.router.navigate(['login']);

@@ -13,7 +13,6 @@ import { DarkModeService } from './api/services/darkMode';
 })
 export class AppComponent {
   title = 'client';
-  isLoggedIn!: boolean
   darkMode: boolean = false
 
   constructor(private loginService: LoginService, private darkModeService: DarkModeService) {
@@ -21,11 +20,4 @@ export class AppComponent {
       this.darkMode = darkMode
     })
   }
-
-  ngOnInit() {
-    this.loginService.isLoggedIn$.subscribe((isLoggedIn) => {
-      this.isLoggedIn = isLoggedIn;
-    });
-  }
-
 }

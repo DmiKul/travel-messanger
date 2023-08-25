@@ -11,10 +11,19 @@ export class LayoutComponent {
   @Input() public isLoggedIn!: boolean;
   isToggled: boolean = false;
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(private loginService: LoginService, private router: Router) {
+    if (localStorage.getItem('userId')) {
+      this.loginService.setIsLoggedIn(true)
+    }
+    this.loginService.isLoggedIn$.subscribe(isLoggedIn => {
+      this.isLoggedIn = isLoggedIn
+    })
+    console.log(this.isLoggedIn)
+  }
 
   logout(): void {
     this.loginService.setIsLoggedIn(false)
+    localStorage.removeItem('userId')
     this.router.navigate(['login'])
   }
 
