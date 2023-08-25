@@ -5,7 +5,7 @@
       <div class="subinfo">
         <app-online-badge [isOnline]="isOnline"></app-online-badge>
         <span class="place tui-text_body-l">
-          <tui-svg src="tuiIconMapPinLarge"></tui-svg>
+          <tui-svg *ngIf="city" src="tuiIconMapPinLarge"></tui-svg>
           {{ city }}
         </span>
       </div>
