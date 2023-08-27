@@ -13,7 +13,7 @@ export interface IUser {
   city: string;
   avatar: string; // source (link) image
   chats: string[]; // chat id list
-  posts: IPost[]; // post id list
+  posts: number[]; // post id list
   photos: string[]; // photo id list
   followers: IFriend[]; // followers id list
   gifts: string[];

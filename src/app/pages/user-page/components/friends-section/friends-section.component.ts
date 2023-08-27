@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IFriend } from '@customTypes/models';
+import { UserDataService } from 'src/app/api/services/user-data.service';
 
 @Component({
   selector: 'app-friends-section',
@@ -7,13 +8,16 @@ import { IFriend } from '@customTypes/models';
   styleUrls: ['./friends-section.component.less']
 })
 export class FriendsSectionComponent {
-  @Input() public friends: IFriend[] = [];
+  friends: IFriend[] = []
   friendsCount: number = 0;
   firstFriends: IFriend[] = [];
   onlineFriends: IFriend[] = [];
   onlineFriendsCount: number = 0;
   firstOnlineFriends: IFriend[] = [];
-  constructor() {
+  constructor(private userDataService: UserDataService) {
+    this.userDataService.get().subscribe( data => {
+      this.friends = data.followers
+    })
     this.friendsCount = this.friends.length;
     this.firstFriends = this.friends.slice(0, 8);
     if (this.onlineFriendsCount) {

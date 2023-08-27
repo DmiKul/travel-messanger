@@ -64,7 +64,7 @@ export class LoginPageComponent {
       this.http.get<IUser[]>('http://localhost:3000/users/').subscribe(data => {
         this.isLoginDataCorrect = data.some(user => {
           if (user.email === login && user.password === password) {
-            this.userDataService.saveUserData(user)
+            this.userDataService.set(user)
             localStorage.setItem('userId', user.id)
             return true
           } else {

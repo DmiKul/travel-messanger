@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
+import { UserDataService } from 'src/app/api/services/user-data.service';
 
 @Component({
   selector: 'app-info-section',
@@ -7,9 +8,19 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./info-section.component.less']
 })
 export class InfoSectionComponent {
-  @Input() public avatar!: string
-  @Input() public firstName!: string
-  @Input() public lastName!: string
-  @Input() public isOnline!: boolean
-  @Input() public city!: string
+  avatar!: string
+  fname!: string
+  lname!: string
+  isOnline!: boolean
+  city!: string
+  
+  constructor(private userDataService: UserDataService) {
+    this.userDataService.get().subscribe( data => {
+      this.avatar = data.avatar
+      this.fname = data.fname
+      this.lname = data.lname
+      this.isOnline = true
+      this.city = data.city
+    })
+  }
 }

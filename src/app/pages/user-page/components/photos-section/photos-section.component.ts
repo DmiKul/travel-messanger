@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { UserDataService } from 'src/app/api/services/user-data.service';
 
 @Component({
   selector: 'app-photos-section',
@@ -6,10 +7,13 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./photos-section.component.less']
 })
 export class PhotosSectionComponent {
-  @Input() public photos: string[] = []
+  photos: string[] = []
   firstPhotos: string[] = []
 
-  constructor() {
+  constructor(private userDataService: UserDataService) {
+    this.userDataService.get().subscribe( data => {
+      this.photos = data.photos
+    })
     this.firstPhotos = this.photos.slice(0, 3)
   }
 

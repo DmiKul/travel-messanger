@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IGroup } from '@customTypes/models';
+import { UserDataService } from 'src/app/api/services/user-data.service';
 
 @Component({
   selector: 'app-groups-section',
@@ -7,11 +8,14 @@ import { IGroup } from '@customTypes/models';
   styleUrls: ['./groups-section.component.less']
 })
 export class GroupsSectionComponent {
-  @Input() public groups: IGroup[] = []
+  groups: IGroup[] = []
   groupsCount: number = 0
   firstGroups: IGroup[] = []
 
-  constructor() {
+  constructor(private userDataService: UserDataService) {
+    this.userDataService.get().subscribe( data => {
+      this.groups = data.groups
+    })
     this.groupsCount = this.groups.length
     this.firstGroups = this.groups.slice(0, 4)
   }
