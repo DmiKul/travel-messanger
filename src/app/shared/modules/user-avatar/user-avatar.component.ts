@@ -11,7 +11,6 @@ export class UserAvatarComponent {
 
   ngOnInit() {
     if (!this.src) {
-      console.log('change src')
       this.src = '../../../../assets/images/default-avatar.png'
       console.log(this.src)
     }

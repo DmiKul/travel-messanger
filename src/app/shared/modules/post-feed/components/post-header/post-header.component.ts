@@ -12,7 +12,6 @@ export class PostHeaderComponent {
   @Input() public authorImg!: string;
   @Input() public authorFName!: string;
   @Input() public authorLName!: string;
-  // @Input() public date!: moment.Moment;
   @Input() public date!: IDate;
 
   constructor() {}
@@ -34,7 +33,6 @@ export class PostHeaderComponent {
 
     const presentTime = moment().locale('ru');
     const diffHours = presentTime.diff(creationTime, 'hours');
-    console.log(diffHours);
     if (diffHours <= 2) {
       return creationTime.from(presentTime);
     }
@@ -43,9 +41,7 @@ export class PostHeaderComponent {
       return creationTime.format('ll');
     }
     const minutes = creationTime.minutes();
-    console.log(minutes);
     const hours = creationTime.hours();
-    console.log(hours);
     return `${creationTime.format('DD MMM')} в ${hours}:${minutes}`;
   }
 
