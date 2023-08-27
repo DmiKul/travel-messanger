@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./post-images.component.less']
 })
 export class PostImagesComponent {
-  @Input() public photos!: string[]
+  @Input() public photos!: File[]
   index = 0;
 
   public prevImage() {
