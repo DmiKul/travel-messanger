@@ -6,16 +6,134 @@
       "password": "dkj83nd83",
       "isVerified": false,
       "fname": "Иван",
-      "lname": "Петров",
+      "lname": "Сидоров",
       "city": "Санкт-Петербург",
       "age": 0,
       "avatar": "",
       "chats": [],
-      "posts": [],
+      "posts": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
       "photos": [],
       "followers": [],
       "gifts": [],
       "groups": []
+    }
+  ],
+  "posts": [
+    {
+      "authorId": "1",
+      "authorImg": "",
+      "authorFName": "Иван",
+      "authorLName": "Сидоров",
+      "photos": "",
+      "text": "Пост1",
+      "date": {
+        "year": 2023,
+        "month": 7,
+        "day": 27,
+        "hour": 13,
+        "minute": 16,
+        "second": 31,
+        "millisecond": 644
+      },
+      "id": 1,
+      "likes": 0,
+      "dislikes": 0,
+      "comments": [],
+      "reactions": []
+    },
+    {
+      "authorId": "1",
+      "authorImg": "",
+      "authorFName": "Иван",
+      "authorLName": "Сидоров",
+      "photos": "",
+      "text": "Пост2",
+      "date": {
+        "year": 2010,
+        "month": 3,
+        "day": 5,
+        "hour": 15,
+        "minute": 10,
+        "second": 3,
+        "millisecond": 123
+      },
+      "id": 2,
+      "likes": 0,
+      "dislikes": 0,
+      "comments": [],
+      "reactions": []
+    },
+    {
+      "authorId": "1",
+      "authorImg": "",
+      "authorFName": "Иван",
+      "authorLName": "Сидоров",
+      "photos": "",
+      "text": "Пост3",
+      "date": {
+        "year": 2023,
+        "month": 7,
+        "day": 26,
+        "hour": 15,
+        "minute": 10,
+        "second": 3,
+        "millisecond": 123
+      },
+      "id": 3,
+      "likes": 0,
+      "dislikes": 0,
+      "comments": [],
+      "reactions": []
+    },
+    {
+      "authorId": "1",
+      "authorImg": "",
+      "authorFName": "Иван",
+      "authorLName": "Сидоров",
+      "photos": "",
+      "text": "Пост4",
+      "date": {
+        "year": 2023,
+        "month": 7,
+        "day": 27,
+        "hour": 11,
+        "minute": 10,
+        "second": 3,
+        "millisecond": 123
+      },
+      "id": 4,
+      "likes": 0,
+      "dislikes": 0,
+      "comments": [],
+      "reactions": []
+    },
+    {
+      "authorId": "1",
+      "authorImg": "",
+      "authorFName": "Иван",
+      "authorLName": "Сидоров",
+      "photos": "",
+      "text": "Пост5",
+      "date": {
+        "year": 2023,
+        "month": 7,
+        "day": 27,
+        "hour": 13,
+        "minute": 10,
+        "second": 3,
+        "millisecond": 123
+      },
+      "id": 5,
+      "likes": 0,
+      "dislikes": 0,
+      "comments": [],
+      "reactions": []
     }
   ]
 }

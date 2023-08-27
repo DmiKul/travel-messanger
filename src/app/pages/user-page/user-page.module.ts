@@ -19,6 +19,8 @@ import { SectionModule } from '@shared/modules/section/section.module';
 import { CreatePostComponent } from './components/create-post/create-post.component';
 import {TuiTextAreaModule} from '@taiga-ui/kit';
 import {TuiInputFilesModule} from '@taiga-ui/kit';
+import { ReactiveFormsModule } from '@angular/forms';
+import {TuiLoaderModule} from '@taiga-ui/core';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import {TuiInputFilesModule} from '@taiga-ui/kit';
     TuiTextAreaModule,
     TuiInputFilesModule,
     TuiButtonModule,
-    TuiBadgedContentModule
+    TuiBadgedContentModule,
+    ReactiveFormsModule,
+    TuiLoaderModule
   ],
   exports: [UserPageComponent]
 })

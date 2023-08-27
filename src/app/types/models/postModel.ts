@@ -1,10 +1,13 @@
 import { Content } from './contentModel';
+import { IDate } from './dateModel';
 
 export interface IPost extends Content {
+  authorId: string;
   authorImg: string;
   authorFName: string;
   authorLName: string;
-	photos: string[]; // photo id list
-	text: string;
-  date: moment.Moment;
+  photos: File[]; // photo id list
+  text: string;
+  // date: moment.Moment;
+  date: IDate
 }

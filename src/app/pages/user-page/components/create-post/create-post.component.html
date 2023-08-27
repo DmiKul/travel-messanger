@@ -1,21 +1,34 @@
 <app-section>
-  <div class="content">
+  <form
+    class="create-post-form"
+    [formGroup]="createPostForm"
+    (ngSubmit)="onSubmit()"
+  >
     <div
       class="header"
       (click)="showOrHide()"
     >
       <div class="wrapper">
-        <app-user-avatar size="s"></app-user-avatar>
+        <app-user-avatar [src]="avatar" size="s"></app-user-avatar>
         <p>Что у Вас нового?</p>
       </div>
-      <tui-badged-content>
+      <tui-badged-content class="input-files-wrapper">
         <button
+          class="btn-img"
           tuiIconButton
           appearance="secondary"
           icon="tuiIconImageLarge"
           size="m"
           title="Добавить фото"
         ></button>
+        <tui-input-files
+          class="input-files"
+          accept="image/*"
+          [multiple]="true"
+          link=" "
+          label=" "
+          formControlName="photos"
+        ></tui-input-files>
       </tui-badged-content>
     </div>
     <div
@@ -26,14 +39,24 @@
         [expandable]="true"
         data-size="m"
         class="text"
+        formControlName="text"
       ></tui-text-area>
+      <tui-files class="photos">
+        <tui-file
+          *ngFor="let file of _photos?.value"
+          tuiItem
+          [file]="file"
+          (removed)="removePhoto(file)"
+        ></tui-file>
+      </tui-files>
       <button
         tuiButton
         size="s"
         class="publish-btn"
+        type="submit"
       >
         Опубликовать
       </button>
     </div>
-  </div>
+  </form>
 </app-section>
