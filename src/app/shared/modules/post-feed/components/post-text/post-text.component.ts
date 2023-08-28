@@ -8,11 +8,13 @@ import { Component, Input } from '@angular/core';
 export class PostTextComponent {
   @Input() public text!: string
   restText!: string
+  isTextBig: boolean = false
   needMore: boolean = false
   action: string = 'Показать ещё'
 
   ngOnInit() {
     if (this.text.length > 200) {
+      this.isTextBig = true
       this.needMore = true
       this.restText = this.text.slice(200)
       this.text = this.text.slice(0, 200)
