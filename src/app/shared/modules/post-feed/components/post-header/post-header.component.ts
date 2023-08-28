@@ -12,7 +12,8 @@ export class PostHeaderComponent {
   @Input() public authorImg!: string;
   @Input() public authorFName!: string;
   @Input() public authorLName!: string;
-  @Input() public date!: IDate;
+  // @Input() public date!: IDate;
+  @Input() public date!: string;
 
   constructor() {}
 
@@ -21,14 +22,16 @@ export class PostHeaderComponent {
   }
 
   getPostTimeInfo() {
+    console.log(this.date)
+    const dateParts = this.date.split(' ')
     const creationTime = moment({
-      year: this.date.year,
-      month: this.date.month,
-      day: this.date.day,
-      hour: this.date.hour,
-      minute: this.date.minute,
-      second: this.date.second,
-      millisecond: this.date.millisecond
+      year: +dateParts[0],
+      month: +dateParts[1],
+      day: +dateParts[2],
+      hour: +dateParts[3],
+      minute: +dateParts[4],
+      second: +dateParts[5],
+      millisecond: +dateParts[6]
     }).locale('ru');
 
     const presentTime = moment().locale('ru');

@@ -8,19 +8,10 @@ import { IPost, IUser } from '@customTypes/models';
   styleUrls: ['./post.component.less']
 })
 export class PostComponent {
-  @Input() public postId!: number;
-  post!: IPost;
-  isLoading: boolean = true;
+  @Input() public post!: IPost;
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   ngOnInit() {
-    this.http
-      .get<IPost>(`http://localhost:3000/posts/${this.postId}`)
-      .subscribe((post) => {
-        this.post = post;
-        console.log('post', post);
-        this.isLoading = false;
-      });
   }
 }

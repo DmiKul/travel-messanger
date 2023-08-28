@@ -1,3 +1,9 @@
 <div class="post-feed">
-  <app-post *ngFor="let post of posts" [postId]="post"></app-post>
+  <ng-template #postCollection>
+    <app-post
+      *ngFor="let post of posts"
+      [post]="post"
+    ></app-post>
+  </ng-template>
+  <tui-loader *ngIf="isLoading; else postCollection"></tui-loader>
 </div>

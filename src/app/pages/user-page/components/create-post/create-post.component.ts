@@ -26,12 +26,12 @@ export class CreatePostComponent {
     private http: HttpClient,
     private userDataService: UserDataService
   ) {
-    this.userDataService.get().subscribe( data => {
-      this.userData = data
-      this.avatar = data.avatar
-      this.fname = data.fname
-      this.lname = data.lname
-    })
+    this.userDataService.get().subscribe((data) => {
+      this.userData = data;
+      this.avatar = data.avatar;
+      this.fname = data.fname;
+      this.lname = data.lname;
+    });
     this.userId = localStorage.getItem('userId') || '';
     if (!this.userId) {
       console.log('userId missing');
@@ -66,20 +66,12 @@ export class CreatePostComponent {
     console.log(this.createPostForm);
     //todo: валидация
 
-    const photos: File[] = this._photos?.value;
+    const photos: File[] = this._photos?.value || [];
     const text: string = this._text?.value;
-    const presentTime = moment()
-    const date = {
-      year: presentTime.year(),
-      month: presentTime.month(),
-      day: presentTime.date(),
-      hour: presentTime.hours(),
-      minute: presentTime.minutes(),
-      second: presentTime.seconds(),
-      millisecond: presentTime.millisecond()
-    }
-
+    const presentTime = moment();
+    const date = `${presentTime.year()} ${presentTime.month()} ${presentTime.date()} ${presentTime.hours()} ${presentTime.minutes()} ${presentTime.seconds()} ${presentTime.millisecond()}`;
     this.newPost = {
+      pageId: this.userId,
       authorId: this.userId,
       authorImg: this.avatar,
       authorFName: this.fname,
@@ -99,7 +91,7 @@ export class CreatePostComponent {
         console.log('new post');
         console.log(post);
         this.userData.posts.push(post.id);
-        this.userDataService.set(this.userData)
+        this.userDataService.set(this.userData);
         this.http
           .put(`http://localhost:3000/users/${this.userId}`, this.userData)
           .subscribe((response) => {
