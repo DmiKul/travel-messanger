@@ -21,7 +21,7 @@ export class PostHeaderComponent {
   }
 
   getPostTimeInfo() {
-    const dateParts = this.date.split(' ')
+    const dateParts = this.date.split('-')
     const creationTime = moment({
       year: +dateParts[0],
       month: +dateParts[1],

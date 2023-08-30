@@ -68,8 +68,7 @@ export class CreatePostComponent {
 
     const photos: File[] = this._photos?.value || [];
     const text: string = this._text?.value;
-    const presentTime = moment();
-    const date = `${presentTime.year()} ${presentTime.month()} ${presentTime.date()} ${presentTime.hours()} ${presentTime.minutes()} ${presentTime.seconds()} ${presentTime.millisecond()}`;
+
     //todo: добавлять нули, чтобы потом было правильное сравнение строк
     this.newPost = {
       pageId: this.userId,
@@ -79,7 +78,7 @@ export class CreatePostComponent {
       authorLName: this.lname,
       photos: photos,
       text: text,
-      date: date,
+      date: this.getFormattedDate(),
       id: '',
       likes: 0,
       dislikes: 0,
@@ -100,6 +99,38 @@ export class CreatePostComponent {
           });
       });
     this.createPostForm.reset();
+  }
+
+  getFormattedDate(): string {
+    const presentTime = moment();
+    const year = this.formatDatePart(presentTime.year())
+    const month = this.formatDatePart(presentTime.month())
+    const day = this.formatDatePart(presentTime.date())
+    const hour = this.formatDatePart(presentTime.hours())
+    const minute = this.formatDatePart(presentTime.minutes())
+    const second = this.formatDatePart(presentTime.seconds())
+    const millisecond = this.formatDatePart(presentTime.millisecond())
+
+    const date =  [year, month, day, hour, minute, second, millisecond].join('-')
+    console.log('formatted date', date)
+    return date
+  }
+
+  formatDatePart(num: number, isMilliseconds: boolean = false): string {
+    if (isMilliseconds) {
+      if (num < 10) {
+        return '00' + num.toString()
+      }
+      if (num < 100) {
+        return '0' + num.toString()
+      }
+      return num.toString()
+    }
+
+    if (num < 10) {
+      return '0' + num.toString()
+    }
+    return num.toString()
   }
 
   removePhoto({ name }: File): void {

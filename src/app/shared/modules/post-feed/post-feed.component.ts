@@ -17,7 +17,7 @@ export class PostFeedComponent {
   // posts: number[] = []
   posts: IPost[] = [];
   pageId!: string;
-  isLoading: boolean = true;
+  isLoading: boolean = false;
   startIndex: number = 0;
   postsLimit: number = 5;
   allPostsCount: number = 0
@@ -48,7 +48,7 @@ export class PostFeedComponent {
   }
 
   getPosts() {
-    if (this.posts.length == this.allPostsCount) {
+    if (this.posts.length == this.allPostsCount || !this.allPostsCount) {
       return
     }
     this.isLoading = true;
