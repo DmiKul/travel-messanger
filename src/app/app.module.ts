@@ -16,6 +16,7 @@ import { AppComponent } from './app.component';
 import { LoginPageModule } from './pages/login-page/login-page.module';
 import { RegistrationPageModule } from './pages/registration-page/registration-page.module';
 import {TuiThemeNightModule, TuiModeModule} from '@taiga-ui/core';
+import { InfiniteScrollComponent } from './shared/modules/infinite-scroll/infinite-scroll.component';
 
 
 @NgModule({

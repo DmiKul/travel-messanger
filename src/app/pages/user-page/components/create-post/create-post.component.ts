@@ -70,6 +70,7 @@ export class CreatePostComponent {
     const text: string = this._text?.value;
     const presentTime = moment();
     const date = `${presentTime.year()} ${presentTime.month()} ${presentTime.date()} ${presentTime.hours()} ${presentTime.minutes()} ${presentTime.seconds()} ${presentTime.millisecond()}`;
+    //todo: добавлять нули, чтобы потом было правильное сравнение строк
     this.newPost = {
       pageId: this.userId,
       authorId: this.userId,

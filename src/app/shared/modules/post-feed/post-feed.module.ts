@@ -10,6 +10,7 @@ import { TuiButtonModule, TuiDataListModule, TuiHostedDropdownModule, TuiLoaderM
 import { SectionModule } from '../section/section.module';
 import { UserAvatarModule } from '../user-avatar/user-avatar.module';
 import { TuiCarouselModule, TuiPaginationModule } from '@taiga-ui/kit';
+import { InfiniteScrollModule } from '../infinite-scroll/infinite-scroll.module';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { TuiCarouselModule, TuiPaginationModule } from '@taiga-ui/kit';
     TuiSvgModule,
     TuiPaginationModule,
     TuiHostedDropdownModule,
-    TuiButtonModule
+    TuiButtonModule,
+    InfiniteScrollModule
 
   ],
   exports: [PostFeedComponent]

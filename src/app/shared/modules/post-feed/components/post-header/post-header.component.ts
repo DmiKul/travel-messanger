@@ -18,11 +18,9 @@ export class PostHeaderComponent {
   constructor() {}
 
   ngOnInit() {
-    console.log('avatar in post ', this.authorImg);
   }
 
   getPostTimeInfo() {
-    console.log(this.date)
     const dateParts = this.date.split(' ')
     const creationTime = moment({
       year: +dateParts[0],
