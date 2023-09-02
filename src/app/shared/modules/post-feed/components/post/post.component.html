@@ -5,6 +5,8 @@
       [authorFName]="post.authorFName"
       [authorLName]="post.authorLName"
       [date]="post.date"
+      [id]="post.id"
+      (deletePostEvent)="delete($event)"
     ></app-post-header>
     <app-post-text [text]="post.text"></app-post-text>
     <app-post-images [photos]="post.photos"></app-post-images>

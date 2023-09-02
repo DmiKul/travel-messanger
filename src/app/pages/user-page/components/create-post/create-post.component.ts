@@ -1,14 +1,19 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
+import { Component, Injectable, Input } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { IPost, IUser } from '@customTypes/models';
 import * as moment from 'moment';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { NewPostService } from 'src/app/api/services/new-post.service';
 import { UserDataService } from 'src/app/api/services/user-data.service';
 
 @Component({
   selector: 'app-create-post',
   templateUrl: './create-post.component.html',
   styleUrls: ['./create-post.component.less']
+})
+@Injectable({
+  providedIn: 'root'
 })
 export class CreatePostComponent {
   userData!: IUser;
@@ -24,7 +29,8 @@ export class CreatePostComponent {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private userDataService: UserDataService
+    private userDataService: UserDataService,
+    private newPostService: NewPostService
   ) {
     this.userDataService.get().subscribe((data) => {
       this.userData = data;
@@ -92,6 +98,10 @@ export class CreatePostComponent {
         console.log(post);
         this.userData.posts.push(post.id);
         this.userDataService.set(this.userData);
+
+        this.newPost.id = post.id
+        this.newPostService.set(this.newPost)
+
         this.http
           .put(`http://localhost:3000/users/${this.userId}`, this.userData)
           .subscribe((response) => {

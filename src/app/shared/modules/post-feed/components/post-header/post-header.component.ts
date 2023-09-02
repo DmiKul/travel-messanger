@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MinValidator } from '@angular/forms';
 import { IDate } from '@customTypes/models/dateModel';
 import * as moment from 'moment';
@@ -14,6 +14,8 @@ export class PostHeaderComponent {
   @Input() public authorLName!: string;
   // @Input() public date!: IDate;
   @Input() public date!: string;
+  @Input() public id!: string;
+  @Output() public deletePostEvent = new EventEmitter<string>()
 
   constructor() {}
 
@@ -46,7 +48,9 @@ export class PostHeaderComponent {
     return `${creationTime.format('DD MMM')} в ${hours}:${minutes}`;
   }
 
-  delete() {}
+  delete() {
+    this.deletePostEvent.emit(this.id)
+  }
 
   edit() {}
 

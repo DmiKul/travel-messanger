@@ -4,6 +4,7 @@
       <app-post
         *ngFor="let post of posts"
         [post]="post"
+        (deletePostEvent)="deletePost($event)"
       ></app-post>
       <tui-loader *ngIf="isLoading"></tui-loader>
     </div>

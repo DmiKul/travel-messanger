@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IPost, IUser } from '@customTypes/models';
 
 @Component({
@@ -9,9 +9,14 @@ import { IPost, IUser } from '@customTypes/models';
 })
 export class PostComponent {
   @Input() public post!: IPost;
+  @Output() public deletePostEvent = new EventEmitter<string>()
 
   constructor() {}
 
   ngOnInit() {
+  }
+
+  delete(id: string) {
+    this.deletePostEvent.emit(id)
   }
 }
